@@ -1,0 +1,15 @@
+package me.ryehjael;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
+public class DamageHandler {
+	
+	public void damageHandler(EntityDamageByEntityEvent e) {
+		if (e.getDamager() instanceof Player) {
+			Player p = (Player) e.getDamager();
+			double finalDmg = e.getFinalDamage();
+			int dmg = (int)Math.round(finalDmg);
+		} 
+	}
+}

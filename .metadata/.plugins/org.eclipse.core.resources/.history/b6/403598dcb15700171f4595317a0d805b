@@ -1,0 +1,18 @@
+package me.ryehjael;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+
+public class DamageHandler {
+	
+	public void damageHandler(EntityDamageByEntityEvent e) {
+		if ((Player) e.getDamager() == null) {
+			return;
+		} else {
+			Player p = (Player) e.getDamager();
+			System.out.println(p);
+		}
+		
+	}
+
+}

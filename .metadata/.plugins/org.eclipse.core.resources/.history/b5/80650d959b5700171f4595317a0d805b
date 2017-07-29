@@ -1,0 +1,10 @@
+package me.ryehjael;
+
+import org.bukkit.event.player.PlayerFishEvent;
+
+public class FishingHandler {
+
+	public void fishingHandler(PlayerFishEvent e) {
+		
+	}
+}

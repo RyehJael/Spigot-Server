@@ -1,0 +1,99 @@
+package me.ryehjael;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import net.md_5.bungee.api.ChatColor;
+
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.inventory.ItemStack;
+
+public class BlockBreakHandler {
+	
+	Map<String, List<Object>> SkillBlocks = getSkillBlocks();
+  
+	public void blockBreakHandler(BlockBreakEvent e) {
+	  ExperienceCalculator calc = new ExperienceCalculator();
+	  Player p = e.getPlayer();
+	  Block b = e.getBlock();
+	  if (p.isOp()) {
+		  p.sendRawMessage(ChatColor.GREEN + b.getType().toString() + " " + b.getData());
+		  }
+	  if (p.getGameMode() == GameMode.SURVIVAL || p.getGameMode() == GameMode.ADVENTURE) {
+		  for (Entry<String, List<Object>> skillBlock : this.SkillBlocks.entrySet()) {
+			  List<Object> data = (List<Object>) skillBlock.getValue();
+			  ItemStack item = (ItemStack) data.get(0);
+			  if (b.getType() == item.getType() && b.getData() == item.getData().getData()) {
+				  calc.addExperience(p, (String) data.get(2), (int) data.get(1));
+
+				  if (data.get(3) != null) {
+					  p.getInventory().addItem((ItemStack) data.get(3));
+				  }
+			  }
+		  }
+	  }
+	}
+  
+  public void giveBlockDrop(BlockBreakEvent e) {
+	  Player p = e.getPlayer();
+	  Block block = e.getBlock();
+	  Collection<ItemStack> drops = block.getDrops(p.getInventory().getItemInMainHand());
+	  for (ItemStack d : drops) {
+		  p.getInventory().addItem(d);
+	  }
+  }
+  
+  
+  
+  public Map<String, List<Object>> getSkillBlocks() {
+	  
+	  Items items = new Items();
+	  Map<String, List<Object>> skillBlocks = new HashMap<String, List<Object>>();
+	  
+	  
+	  //MINING
+	  
+	  List<Object> stone = new ArrayList<Object>();
+	  stone.add(new ItemStack(Material.STONE, 1, (short)0));
+	  stone.add((int)2);
+	  stone.add("Mining");
+	  skillBlocks.put("stone", stone);
+	  
+	  List<Object> granite = new ArrayList<Object>();
+	  granite.add(new ItemStack(Material.STONE, 1, (short)1));
+	  granite.add((int)4);
+	  granite.add("Mining");
+	  skillBlocks.put("granite", granite);
+	  
+	  List<Object> diorite = new ArrayList<Object>();
+	  diorite.add(new ItemStack(Material.STONE, 1, (short)3));
+	  diorite.add((int)8);
+	  diorite.add("Mining");
+	  skillBlocks.put("diorite", diorite);
+	  
+	  List<Object> andesite = new ArrayList<Object>();
+	  andesite.add(new ItemStack(Material.STONE, 1, (short)5));
+	  andesite.add((int)8);
+	  andesite.add("Mining");
+	  skillBlocks.put("andesite", andesite);
+	  
+	  //WOODCUTTING
+	  
+	  List<Object> oakLog = new ArrayList<Object>();
+	  oakLog.add(new ItemStack(Material.LOG, 1, (short)0));
+	  oakLog.add((int)2);
+	  oakLog.add("Woodcutting");
+	  oakLog.add(items.OAK_LOG);
+	  skillBlocks.put("oakLog", oakLog);
+	  
+	  return (Map<String, List<Object>>) skillBlocks;
+  }
+}

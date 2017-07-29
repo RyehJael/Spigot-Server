@@ -1,0 +1,49 @@
+# Citizens NPC Storage
+
+last-created-npc-id: 1
+npc:
+  '1':
+    metadata:
+      player-skin-textures: eyJ0aW1lc3RhbXAiOjE0OTkwMjA4MjIzNzAsInByb2ZpbGVJZCI6IjcwNmY5N2NmN2ZkOTQxZjY5YjEzZmY5ZWFjMDBlMjI4IiwicHJvZmlsZU5hbWUiOiJBcnRodXMiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2E1YTk5OTMzODM4NTNmNGIzYjQ2ZDkyOWU2NTIzMTY4NzU4MTRjOTY2NjE0Y2VhYWQ0YmEyZmZlODJmMWQ2MCJ9fX0=
+      cached-skin-uuid-name: arthus
+      player-skin-use-latest: false
+      cached-skin-uuid: 706f97cf-7fd9-41f6-9b13-ff9eac00e228
+      player-skin-name: arthus
+      player-skin-signature: p75SsKimg6x3aMzMmI9lStWeBDyuPDymqKtzqnrei4GBdjU1eAzwdHJBFd5hGcp8l296m/35nKm2WCjTv7A0BJdYkXfwFpEvgMqqqREIU6UDTVH3iiWjOBNOlqjTLqL3L9qQEsxtnawJprtTWprs4tU5kbpgiVf3BiAzLLwRDvqWWw27f1TukvZ27735NPdIh5rIEtcKvZr+KekAumKclQxiViRIp2UOMA0v2aRbE0skkMsSNX1WOQuBdK4RsnqnpLKAeCJTXwi5yq9Fl/T/KTESXCrJhp02gDGW2cCRRDx3sELjrr0gUPttaOJKaScqEBegjtk3giCD4UMVOMwzPJXSReqKFKaLtAneJJpbmlcQHHclse/A8L6DoRbr/2W9SiJU2EtGJP6XuTPtkU8i6b5HlsqLIr6LAxbmgeMh75tz7mksOr5rbD3PR/D5Lhn9n6lJbCnI9dcKvz0otxqk7iaWgjCdnxU6TWYeihBPWlzLpS8KXwW2PlKdK4n+iI/gyAWQddZN8RrrpNqsV/ITXHcJws/rt1j9UNxLWykJpyKk3GeASpoiYaUk9c8zKnHVtFu6nKl41pozCqGrNNtfyGRPkfY4tm+hUSVA+OPGuWN5INPgDoMOGaiaXdoNepQD7l0wXZno1JjMPwV3qhu0kv4g/da4MfKKb23wymMIeJo=
+      protected: true
+    name: Arthas
+    uuid: e7bd5695-5dbf-4d21-b62b-4f59f98b8ea6
+    traits:
+      gravity:
+        enabled: false
+      location:
+        world: karagor
+        x: '-119.9308'
+        y: '63.0625'
+        z: '502.422'
+        yaw: '77.67481994628906'
+        pitch: '0.0'
+      spawned: true
+      lookclose:
+        enabled: true
+        range: '5.0'
+        realisticlooking: false
+      type: PLAYER
+      inventory:
+        '0':
+          type: LOG
+          amount: 1
+          durability: 1
+          mdata: 1
+          meta:
+            unbreakable: false
+            repaircost: 0
+            displayname: Spruce Log
+      owner:
+        owner: RyehJael
+        uuid: 92a3971d-6a31-4e4f-ad27-2f976d1c1fd8
+    traitnames: gravity,type,location,spawned,owner,lookclose,mounttrait,inventory
+    navigator:
+      speedmodifier: '1.0'
+      avoidwater: false
+      usedefaultstuckaction: true

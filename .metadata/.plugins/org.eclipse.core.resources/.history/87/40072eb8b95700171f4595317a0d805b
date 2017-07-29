@@ -1,0 +1,77 @@
+package me.ryehjael;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.bukkit.event.inventory.PrepareItemCraftEvent;
+import org.bukkit.inventory.ItemStack;
+
+public class Recipes
+{
+  Items items = new Items();
+  Map<ItemStack[], ItemStack> recipeList = getRecipeList();
+  
+  public Map<ItemStack[], ItemStack> getRecipeList()
+  {
+    Map<ItemStack[], ItemStack> recipesList = new HashMap<ItemStack[], ItemStack>();
+    
+    ItemStack[] woodAxe1Recipe = { null, this.items.OAK_PLANK, this.items.OAK_PLANK, null, this.items.OAK_STICK, this.items.OAK_PLANK, null, this.items.OAK_STICK, null };
+    recipesList.put(woodAxe1Recipe, this.items.WOOD_AXE1);
+    
+    ItemStack[] woodPickaxe1Recipe = { this.items.OAK_PLANK, this.items.OAK_PLANK, this.items.OAK_PLANK, null, this.items.OAK_STICK, null, null, this.items.OAK_STICK, null };
+    recipesList.put(woodPickaxe1Recipe, this.items.WOOD_PICKAXE1);
+    
+    ItemStack[] oakStickRecipe = { null, null, null, null, this.items.OAK_PLANK, null, null, this.items.OAK_PLANK, null };
+    recipesList.put(oakStickRecipe, this.items.OAK_STICK);
+    
+    ItemStack[] oakPlankRecipe = { null, null, null, null, this.items.OAK_LOG, null, null, null, null, };
+    ItemStack oakPlanks4 = this.items.OAK_PLANK;
+    oakPlanks4.setAmount(4);
+    recipesList.put(oakPlankRecipe, oakPlanks4);
+    
+    return recipesList;
+  }
+  
+  public void findRecipe(PrepareItemCraftEvent e)
+  {
+    if (e.getInventory().getRecipe() != null) {
+      recipeHandler(e);
+    }
+  }
+  
+  public void recipeHandler(PrepareItemCraftEvent e)
+  {
+    for (Map.Entry<ItemStack[], ItemStack> recipeList : this.recipeList.entrySet())
+    {
+      ItemStack[] recipe = (ItemStack[])recipeList.getKey();
+      ItemStack result = (ItemStack)recipeList.getValue();
+      if (compareMatrix(e, recipe)) {
+        e.getInventory().setResult(result);
+      }
+    }
+  }
+  
+  public boolean compareMatrix(PrepareItemCraftEvent e, ItemStack[] recipe)
+  {
+    ItemStack[] matrix = e.getInventory().getMatrix();
+    boolean recipeMatch = false;
+    for (int i = 0; i < matrix.length; i++) {
+      if ((recipe[i] != null) || (matrix[i] != null))
+      {
+        if ((recipe[i] != null) && (matrix[i] == null))
+        {
+          recipeMatch = false;
+          break;
+        }
+        if (!matrix[i].isSimilar(recipe[i]))
+        {
+          recipeMatch = false;
+          break;
+        }
+        if (matrix[i].isSimilar(recipe[i])) {
+          recipeMatch = true;
+        }
+      }
+    }
+    return recipeMatch;
+  }
+}

@@ -1,0 +1,76 @@
+package me.ryehjael;
+
+import java.util.ArrayList;
+import java.util.List;
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+public class Items
+{
+  ItemStack WOOD_AXE1 = getWoodAxe1();
+  ItemStack WOOD_PICKAXE1 = getWoodAxe1();
+  ItemStack OAK_STICK = getOakStick();
+  ItemStack OAK_PLANK = getOakPlank();
+  ItemStack OAK_LOG = getOakLog();
+  
+  public ItemStack getWoodAxe1()
+  {
+    ItemStack woodAxe1 = new ItemStack(Material.WOOD_AXE, 1, (short)1);
+    ItemMeta meta = woodAxe1.getItemMeta();
+    meta.setUnbreakable(true);
+    meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE });
+    meta.setLore(createLore(new String[] { "", "When in main hand:", " 1 Attack Speed", " 1 Attack Damage", " 60 Dependability" }));
+    woodAxe1.setItemMeta(meta);
+    return woodAxe1;
+  }
+  
+  public ItemStack getWoodPickaxe1()
+  {
+    ItemStack woodPickaxe1 = new ItemStack(Material.WOOD_AXE, 1, (short)1);
+    ItemMeta meta = woodPickaxe1.getItemMeta();
+    meta.setUnbreakable(true);
+    meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE });
+    meta.setLore(createLore(new String[] { "", "When in main hand:", " 1 Attack Speed", " 1 Attack Damage", " 60 Dependability" }));
+    woodPickaxe1.setItemMeta(meta);
+    return woodPickaxe1;
+  }
+  
+  public ItemStack getOakLog()
+  {
+    ItemStack oakLog = new ItemStack(Material.LOG, 1);
+    ItemMeta meta = oakLog.getItemMeta();
+    meta.setDisplayName("Oak Log");
+    oakLog.setItemMeta(meta);
+    return oakLog;
+  }
+  
+  public ItemStack getOakStick()
+  {
+    ItemStack oakStick = new ItemStack(Material.STICK, 1);
+    ItemMeta meta = oakStick.getItemMeta();
+    meta.setDisplayName("Oak Stick");
+    oakStick.setItemMeta(meta);
+    return oakStick;
+  }
+  
+  public ItemStack getOakPlank()
+  {
+    ItemStack oakPlank = new ItemStack(Material.WOOD, 1, (short)0);
+    ItemMeta meta = oakPlank.getItemMeta();
+    meta.setDisplayName("Oak Planks");
+    oakPlank.setItemMeta(meta);
+    return oakPlank;
+  }
+  
+  public List<String> createLore(String... lines)
+  {
+    List<String> lore = new ArrayList<String>();
+    for (int i = 0; i < lines.length; i++) {
+      lore.add(ChatColor.GRAY + lines[i]);
+    }
+    return lore;
+  }
+}
