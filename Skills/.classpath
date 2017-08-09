@@ -7,5 +7,6 @@
 			<attribute name="javadoc_location" value="https://hub.spigotmc.org/javadocs/spigot/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/spencer/code/minecraft_server/plugins/worldedit-bukkit-6.1.7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

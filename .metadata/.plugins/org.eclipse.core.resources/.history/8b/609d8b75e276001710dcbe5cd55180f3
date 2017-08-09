@@ -1,0 +1,56 @@
+package me.ryehjael;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerFishEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+public class FishingHandler {
+	Map<String, List<Object>> Fish = getFish();
+	Items items = new Items();
+
+	public void fishingHandler(PlayerFishEvent e) {
+		Player p = e.getPlayer();
+		if (e.getCaught() != null && e.getCaught().getType() == EntityType.DROPPED_ITEM) {
+			Item d = (Item) e.getCaught();
+			ItemStack item = d.getItemStack();
+			if (p.getGameMode() == GameMode.SURVIVAL
+					|| p.getGameMode() == GameMode.ADVENTURE && item.getType() == Material.RAW_FISH) {
+				  for (Entry<String, List<Object>> fish : this.Fish.entrySet()) {
+					  List<Object> data = (List<Object>) fish.getValue();
+					  item = (ItemStack) data.get(0);
+				  }
+			}
+
+		}
+	}
+	
+	public Map<String, List<Object>> getFish() {
+		  
+		  Items items = new Items();
+		  Map<String, List<Object>> fish = new HashMap<String, List<Object>>();
+		  
+		  List<Object> scrawny_fish = new ArrayList<Object>();
+		  scrawny_fish.add(0, new ItemStack(Material.RAW_FISH, 1, (short)0));
+		  scrawny_fish.add(1, (int) 0);
+		  scrawny_fish.add(2, (int)2);
+		  scrawny_fish.add(3, "Fishing");
+		  scrawny_fish.add(4, items.RAW_SCRAWNY_FISH);
+		  scrawny_fish.add(5, (int)2);
+		  fish.put("scrawny_fish", scrawny_fish);
+		  
+
+		  
+		  return (Map<String, List<Object>>) fish;
+	  }
+}

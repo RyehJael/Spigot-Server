@@ -1,0 +1,41 @@
+package me.ryehjael;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.bukkit.Material;
+import org.bukkit.event.player.PlayerFishEvent;
+import org.bukkit.inventory.ItemStack;
+
+public class FishingHandler {
+
+	public void fishingHandler(PlayerFishEvent e) {
+		if (e.getState() == PlayerFishEvent.State.CAUGHT_FISH) {
+			System.out.println(e.getCaught().getType() + " " + e.getCaught().getType().getTypeId());
+		}
+	}
+	
+	public Map<String, List<Object>> getSkillBlocks() {
+		  
+		  Items items = new Items();
+		  Map<String, List<Object>> skillBlocks = new HashMap<String, List<Object>>();
+		  
+		  
+		  //MINING
+		  
+		  List<Object> stone = new ArrayList<Object>();
+		  stone.add(0, new ItemStack(Material.STONE, 1, (short)0));
+		  stone.add(1, (int) 0);
+		  stone.add(2, (int)2);
+		  stone.add(3, "Mining");
+		  stone.add(4, items.STONE);
+		  stone.add(5, (int)2);
+		  skillBlocks.put("stone", stone);
+		  
+
+		  
+		  return (Map<String, List<Object>>) skillBlocks;
+	  }
+}

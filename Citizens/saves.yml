@@ -42,7 +42,7 @@ npc:
       owner:
         owner: RyehJael
         uuid: 92a3971d-6a31-4e4f-ad27-2f976d1c1fd8
-    traitnames: gravity,type,location,spawned,owner,lookclose,mounttrait,inventory
+    traitnames: mounttrait,lookclose,gravity,spawned,location,owner,inventory,type
     navigator:
       speedmodifier: '1.0'
       avoidwater: false

@@ -56,6 +56,10 @@ public class Items
   ItemStack MAHOGANY_LOG = getMahoganyLog();
   ItemStack ACACIA_LOG = getAcaciaLog();
   ItemStack BLACKWOOD_LOG = getBlackwoodLog();
+  
+  //Fish
+  ItemStack RAW_SCRAWNY_FISH = getRawScrawnyFish();
+  ItemStack RAW_TROUT = getRawTrout();
 
 public ItemStack getWoodAxe1()
   {
@@ -347,6 +351,24 @@ public ItemStack getBlackwoodPlank()
   meta.setDisplayName("Blackwood Planks");
   blackwoodPlank.setItemMeta(meta);
   return blackwoodPlank;
+}
+
+public ItemStack getRawScrawnyFish()
+{
+  ItemStack fish = new ItemStack(Material.RAW_FISH, 1, (short)0);
+  ItemMeta meta = fish.getItemMeta();
+  meta.setDisplayName("Raw Scrawny Fish");
+  fish.setItemMeta(meta);
+  return fish;
+}
+
+public ItemStack getRawTrout()
+{
+  ItemStack fish = new ItemStack(Material.RAW_FISH, 1, (short)0);
+  ItemMeta meta = fish.getItemMeta();
+  meta.setDisplayName("Raw Trout");
+  fish.setItemMeta(meta);
+  return fish;
 }
 
 

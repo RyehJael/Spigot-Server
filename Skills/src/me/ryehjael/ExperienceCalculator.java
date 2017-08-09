@@ -1,5 +1,7 @@
 package me.ryehjael;
 
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -37,5 +39,21 @@ public class ExperienceCalculator {
 		p.giveExp(score);
 		return p.getLevel();
 
+	}
+	
+	public int closest(int of, List<Integer> in) {
+	    int min = Integer.MAX_VALUE;
+	    int closest = of;
+
+	    for (int v : in) {
+	        final int diff = Math.abs(v - of);
+
+	        if (diff < min) {
+	            min = diff;
+	            closest = v;
+	        }
+	    }
+
+	    return closest;
 	}
 }
