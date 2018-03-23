@@ -1,0 +1,13 @@
+main: com.civai.ryehjael.Main
+name: CivilizationAI
+version: 1.0
+author: RyehJael
+description: A self-expanding Civilization AI
+depend: [Citizens]
+commands:
+  newciv:
+    description: creates new beginning civilization
+    usage: /<command>
+  getstats:
+    description: get noc stats
+    usage: /<command>
