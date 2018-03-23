@@ -1,7 +1,0 @@
-package me.ryehjael;
-
-public class PlayerInteractEntityHandler {
-	public static void interactHandler() {
-		
-	}
-}
